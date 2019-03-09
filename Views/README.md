@@ -1,1 +1,0 @@
-Here you can add html files to test out visualisations. Feel free to copy index.html for the boiler plater. 
