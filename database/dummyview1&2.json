@@ -1,0 +1,98 @@
+[
+ {
+   "NOC": "USA",
+   "Country": "United States",
+   "Season": "Winter",
+   "Event": "Swimming",
+   "Medals": 120,
+   "Played": 876
+ },
+ {
+   "NOC": "USA",
+   "Country": "United States",
+   "Season": "Summer",
+   "Event": "Swimming",
+   "Medals": 250,
+   "Played": 1023
+ },
+ {
+   "NOC": "CHN",
+   "Country": "China",
+   "Season": "Winter",
+   "Event": "Swimming",
+   "Medals": 87,
+   "Played": 456
+ },
+ {
+   "NOC": "CHN",
+   "Country": "China",
+   "Season": "Summer",
+   "Event": "Swimming",
+   "Medals": 220,
+   "Played": 789
+ },
+ {
+   "NOC": "RUS",
+   "Country": "Russia",
+   "Season": "Winter",
+   "Event": "Swimming",
+   "Medals": 45,
+   "Played": 234
+ },
+ {
+   "NOC": "RUS",
+   "Country": "Russia",
+   "Season": "Summer",
+   "Event": "Swimming",
+   "Medals": 98,
+   "Played": 345
+ },
+ {
+   "NOC": "USA",
+   "Country": "United States",
+   "Season": "Winter",
+   "Event": "Soccer",
+   "Medals": 220,
+   "Played": 789
+ },
+ {
+   "NOC": "USA",
+   "Country": "United States",
+   "Season": "Summer",
+   "Event": "Soccer",
+   "Medals": 45,
+   "Played": 234
+ },
+ {
+   "NOC": "CHN",
+   "Country": "China",
+   "Season": "Winter",
+   "Event": "Soccer",
+   "Medals": 98,
+   "Played": 345
+ },
+ {
+   "NOC": "CHN",
+   "Country": "China",
+   "Season": "Summer",
+   "Event": "Soccer",
+   "Medals": 120,
+   "Played": 876
+ },
+ {
+   "NOC": "RUS",
+   "Country": "Russia",
+   "Season": "Winter",
+   "Event": "Soccer",
+   "Medals": 250,
+   "Played": 1023
+ },
+ {
+   "NOC": "RUS",
+   "Country": "Russia",
+   "Season": "Summer",
+   "Event": "Soccer",
+   "Medals": 87,
+   "Played": 456
+ }
+]
