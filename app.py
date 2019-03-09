@@ -41,7 +41,7 @@ app = Flask (__name__)
 CORS(app)
 
 # Database connection
-app.config['SQLALCHEMY_DATABASE_URI'] =  #"sqlite:///./db.sqlite"
+app.config['SQLALCHEMY_DATABASE_URI'] =  "sqlite:///database/db.sqlite"
 db = SQLAlchemy(app)
 
 # reflect an existing database into a new model
@@ -57,3 +57,6 @@ Base.prepare(db.engine, reflect=True)
 def home():
    """Return the homepage"""
    return render_template('index.html') 
+
+if __name__ == "__main__":
+    app.run(debug = True)
