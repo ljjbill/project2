@@ -56,7 +56,105 @@ Base.prepare(db.engine, reflect=True)
 @app.route('/')
 def home():
    """Return the homepage"""
-   return render_template('index.html') 
+   return render_template('index.html')
+
+
+
+@app.route('/api/medals_percent/all', methods=['GET'])
+def get_medals_percent():
+   """Returns Country list with medals percent of all time"""
+   athlete_events = Base.classes.athlete_events
+   noc_regions = Base.classes.noc
+
+   sel = [
+    noc_regions.region,
+    athlete_events.Medal
+   ]
+
+   query = db.session.query(*sel)\
+         .filter(athlete_events.NOC == noc_regions.NOC)\
+         .filter(athlete_events.Medal.isnot(None))\
+         .all()
+
+   df = pd.DataFrame(query)
+
+   df = df.groupby(['region'])
+
+   table = df["Medal"].count().reset_index()
+   Total = table['Medal'].sum()
+
+   table['measure'] = round((table['Medal'] / Total), 10)
+
+   name_dict = {
+      'region': 'country'
+   }
+
+   column_list = [
+      'country',
+      'measure'
+   ]
+
+   table = table.rename(columns=name_dict)
+   table = table[table.columns.intersection(column_list)]
+
+   table = table.sort_values(by=['measure'], ascending=False)
+
+   data = table.to_json(orient='records')
+   return data
+
+
+
+@app.route('/api/bar_chart', methods=['GET'])
+def get_bar_chart():
+   """Returns Bar Chart for Countries' sports medals count"""
+   athlete_events = Base.classes.athlete_events
+   noc_regions = Base.classes.noc
+   
+   sel = [
+    noc_regions.region,
+    athlete_events.Sport,
+    athlete_events.Medal
+   ]
+
+   query = db.session.query(*sel)\
+         .filter(athlete_events.NOC == noc_regions.NOC)\
+         .filter(athlete_events.Medal.isnot(None))\
+         .all()
+
+   df = pd.DataFrame(query)
+
+   group = df.groupby(['region', 'Sport'])
+   table = group["Medal"].count().reset_index()
+
+   no_group = df.groupby(['Sport'])
+   table_2 =  no_group['Medal'].count().reset_index()
+   table_2['country'] = 'All'
+
+   name_dict = {
+      'region': 'country',
+      'Medal': 'measure',
+      'Sport': 'sports'
+   }
+
+   column_list = [
+      'country',
+      'sports',
+      'measure'
+   ]
+
+   table = table.rename(columns=name_dict)
+   table = table[table.columns.intersection(column_list)]
+   table = table.sort_values(by=['measure'], ascending=False).reset_index(drop=True)
+
+   table_2 = table_2.rename(columns=name_dict)
+   table_2 = table_2[table_2.columns.intersection(column_list)]
+   table_2 = table_2.sort_values(by=['measure'], ascending=False).reset_index(drop=True)
+
+   result = pd.concat([table_2, table], ignore_index=True)
+   result = result[['country', 'sports', 'measure']]
+
+   data = result.to_json(orient='records')
+   return data
 
 if __name__ == "__main__":
     app.run(debug = True)
