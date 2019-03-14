@@ -106,7 +106,7 @@ def get_medals_percent():
 
 @app.route('/api/bar_chart', methods=['GET'])
 def get_bar_chart():
-   """Returns Bar Chart for Countries' sports medals count"""
+   """Returns Bar Chart data for Countries' sports medals count"""
    athlete_events = Base.classes.athlete_events
    noc_regions = Base.classes.noc
    
@@ -154,6 +154,103 @@ def get_bar_chart():
    result = result[['country', 'sports', 'measure']]
 
    data = result.to_json(orient='records')
+   return data
+
+
+
+@app.route('/api/line_chart', methods=['GET'])
+def get_line_chart():
+   """Returns line Chart data for Countries' sports medals count"""
+   athlete_events = Base.classes.athlete_events
+   noc_regions = Base.classes.noc
+
+   sel = [
+    noc_regions.region,
+    athlete_events.Year,
+    athlete_events.Medal
+   ]
+
+   query = db.session.query(*sel)\
+         .filter(athlete_events.NOC == noc_regions.NOC)\
+         .filter(athlete_events.Medal.isnot(None))\
+         .all()
+
+   df = pd.DataFrame(query)
+
+   group = df.groupby(['region', 'Year'])
+   table = group["Medal"].count().reset_index()
+
+   no_group = df.groupby(['Year'])
+   table_2 =  no_group['Medal'].count().reset_index()
+   table_2['country'] = 'All'
+
+   name_dict = {
+      'region': 'country',
+      'Medal': 'measure',
+      'Year': 'year'
+   }
+
+   column_list = [
+      'country',
+      'year',
+      'measure'
+   ]
+
+   table = table.rename(columns=name_dict)
+   table = table[table.columns.intersection(column_list)]
+   table = table.sort_values(by=['measure'], ascending=False).reset_index(drop=True)
+
+   table_2 = table_2.rename(columns=name_dict)
+   table_2 = table_2[table_2.columns.intersection(column_list)]
+   table_2 = table_2.sort_values(by=['year'], ascending=True).reset_index(drop=True)
+
+   result = pd.concat([table_2, table], ignore_index=True)
+   result = result[['country', 'year', 'measure']]
+
+   data = result.to_json(orient='records')
+   return data
+
+
+
+@app.route('/api/scatter_plot', methods=['GET'])
+def get_scatter_plot():
+   """Returns scatter plot data"""
+   athlete_events = Base.classes.athlete_events
+   noc_regions = Base.classes.noc
+
+   sel = [
+    noc_regions.region,
+    athlete_events.Year,
+    athlete_events.Season,
+    athlete_events.Sport,
+    athlete_events.Medal
+   ]
+
+   query = db.session.query(*sel)\
+         .filter(athlete_events.NOC == noc_regions.NOC)\
+         .all()
+
+   df = pd.DataFrame(query)
+   group = df.groupby(['Year', 'Season', 'Sport'])
+
+   table = group["Medal"].count().reset_index()
+
+   name_dict = {
+      'Medal': 'total No of athelete',
+      'Sport': 'Sports'
+   }
+
+   column_list = [
+      'Year',
+      'Season',
+      'Sports',
+      'total No of athelete'
+   ]
+
+   table = table.rename(columns=name_dict)
+   table = table[table.columns.intersection(column_list)]
+
+   data = table.to_json(orient='records')
    return data
 
 if __name__ == "__main__":
