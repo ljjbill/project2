@@ -236,7 +236,7 @@ def get_scatter_plot():
    table = group["Medal"].count().reset_index()
 
    name_dict = {
-      'Medal': 'total No of athelete',
+      'Medal': 'Noathelete',
       'Sport': 'Sports'
    }
 
@@ -244,7 +244,7 @@ def get_scatter_plot():
       'Year',
       'Season',
       'Sports',
-      'total No of athelete'
+      'Noathelete'
    ]
 
    table = table.rename(columns=name_dict)
