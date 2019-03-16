@@ -278,6 +278,7 @@ def get_dashbord_data():
    group = df.groupby(['NOC'])
 
    table = group["Medal"].value_counts().unstack(fill_value=0)
+   table = table.sort_values('Gold', ascending=False).nlargest(10, 'Gold')
    table = table[['Gold', 'Silver', 'Bronze']]
    data = []
 
@@ -285,7 +286,7 @@ def get_dashbord_data():
    for country, values in dict_a.items():
       obj = {}
       obj['country'] = country
-      obj['freq'] = {'Bronze':dict_a[country]['Bronze'], 'Silver':dict_a[country]['Silver'], 'Gold':dict_a[country]['Gold']}
+      obj['freq'] = {'Gold':dict_a[country]['Gold'],'Silver':dict_a[country]['Silver'], 'Bronze':dict_a[country]['Bronze'] }
       data.append(obj)
 
    return jsonify(data)
