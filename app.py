@@ -60,7 +60,7 @@ def home():
 
 
 
-@app.route('/api/medals_percent/all', methods=['GET'])
+@app.route('/api/pie_chart', methods=['GET'])
 def get_medals_percent():
    """Returns Country list with medals percent of all time"""
    athlete_events = Base.classes.athlete_events
@@ -73,6 +73,7 @@ def get_medals_percent():
 
    query = db.session.query(*sel)\
          .filter(athlete_events.NOC == noc_regions.NOC)\
+         .filter(athlete_events.Season == 'Summer')\
          .filter(athlete_events.Medal.isnot(None))\
          .all()
 
@@ -118,6 +119,7 @@ def get_bar_chart():
 
    query = db.session.query(*sel)\
          .filter(athlete_events.NOC == noc_regions.NOC)\
+         .filter(athlete_events.Season == 'Summer')\
          .filter(athlete_events.Medal.isnot(None))\
          .all()
 
@@ -172,6 +174,7 @@ def get_line_chart():
 
    query = db.session.query(*sel)\
          .filter(athlete_events.NOC == noc_regions.NOC)\
+         .filter(athlete_events.Season == 'Summer')\
          .filter(athlete_events.Medal.isnot(None))\
          .all()
 
@@ -282,7 +285,7 @@ def get_dashbord_data():
    for country, values in dict_a.items():
       obj = {}
       obj['country'] = country
-      obj['freq'] = {'Gold':dict_a[country]['Gold'],'Silver':dict_a[country]['Silver'], 'Bronze':dict_a[country]['Bronze'] }
+      obj['freq'] = {'Bronze':dict_a[country]['Bronze'], 'Silver':dict_a[country]['Silver'], 'Gold':dict_a[country]['Gold']}
       data.append(obj)
 
    return jsonify(data)
