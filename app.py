@@ -198,11 +198,11 @@ def get_line_chart():
 
    table = table.rename(columns=name_dict)
    table = table[table.columns.intersection(column_list)]
-   table = table.sort_values(by=['measure'], ascending=False).reset_index(drop=True)
+   table = table.sort_values(by=['country', 'year'], ascending=True).reset_index(drop=True)
 
    table_2 = table_2.rename(columns=name_dict)
    table_2 = table_2[table_2.columns.intersection(column_list)]
-   table_2 = table_2.sort_values(by=['year'], ascending=True).reset_index(drop=True)
+   table_2 = table_2.sort_values(by=['country', 'year'], ascending=True).reset_index(drop=True)
 
    result = pd.concat([table_2, table], ignore_index=True)
    result = result[['country', 'year', 'measure']]
@@ -252,6 +252,35 @@ def get_scatter_plot():
 
    data = table.to_json(orient='records')
    return data
+
+
+
+@app.route('/api/dashboard', methods=['GET'])
+def get_dashbord_data():
+   """Returns dashboard data"""
+   athlete_events = Base.classes.athlete_events
+   noc_regions = Base.classes.noc
+   
+   sel = [
+      noc_regions.region,
+      athlete_events.Medal
+      ]
+      
+
+   query = db.session.query(*sel)\
+         .filter(athlete_events.NOC == noc_regions.NOC)\
+         .filter(athlete_events.Medal.isnot(None))\
+         .all()
+
+   df = pd.DataFrame(query)
+   group = df.groupby(['region'])
+
+   table = group["Medal"].value_counts().unstack(fill_value=0)
+
+   data = table.to_json(orient='index')
+
+   return data
+
 
 if __name__ == "__main__":
     app.run(debug = True)
