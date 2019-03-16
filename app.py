@@ -262,24 +262,30 @@ def get_dashbord_data():
    noc_regions = Base.classes.noc
    
    sel = [
-      noc_regions.region,
+      athlete_events.NOC,
       athlete_events.Medal
       ]
       
 
    query = db.session.query(*sel)\
-         .filter(athlete_events.NOC == noc_regions.NOC)\
          .filter(athlete_events.Medal.isnot(None))\
          .all()
 
    df = pd.DataFrame(query)
-   group = df.groupby(['region'])
+   group = df.groupby(['NOC'])
 
    table = group["Medal"].value_counts().unstack(fill_value=0)
+   table = table[['Gold', 'Silver', 'Bronze']]
+   data = []
 
-   data = table.to_json(orient='index')
+   dict_a = table.T.to_dict()
+   for country, values in dict_a.items():
+      obj = {}
+      obj['country'] = country
+      obj['freq'] = {'Gold':dict_a[country]['Gold'],'Silver':dict_a[country]['Silver'], 'Bronze':dict_a[country]['Bronze'] }
+      data.append(obj)
 
-   return data
+   return jsonify(data)
 
 
 if __name__ == "__main__":
