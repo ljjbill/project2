@@ -236,7 +236,7 @@ def get_scatter_plot():
    df = pd.DataFrame(query)
    group = df.groupby(['Year', 'Season', 'Sport'])
 
-   table = group["Medal"].count().reset_index()
+   table = group["Medal"].count().reset_index().sort_values(by='Season', ascending=False)
 
    name_dict = {
       'Medal': 'Noathelete',
