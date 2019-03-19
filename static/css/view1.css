@@ -50,19 +50,21 @@
 
 .axis text {
     font-family: Verdana;
-    font-size: 11px;
+		font-size: 11px;
+		/* color: white */
 }
 
 .title {
-	 font-family: Verdana;
-    font-size: 15px;	
+	font-family: Verdana;
+	font-size: 15px;	
+	fill: white;	
 		
 }
 
 .xAxis {
     font-family: verdana;
     font-size: 8px;
-    fill: black;
+		fill: white;
 }  
 
 

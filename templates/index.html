@@ -6,30 +6,174 @@
     <title>Home Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- Local style sheet -->
-    <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
+    <!-- Local style sheets -->
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/view1.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style_dash.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style_scat.css">
+    
 
     <!-- external reference sheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src='//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js'></script>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="http://d3js.org/d3.v2.js"></script>
   </head>
+
+
+
 <body>
-    <canvas id="world"></canvas>
-        <div class="wrapper">
-                <nav class="navbar navbar-dark bg-dark">
-                  <div class="container-fluid">
-                    <div class="navbar-header">
-                      <a class="navbar-brand" href="index.html">Olympic Games
-                      </a>
-                    </div>
-                  </div>
-                </nav>
-                <div class="jumbotron text-center">
-                  <h1>This willl be the Header</h1>
-                  <p>Welcome to our interactive analysis</p>
-                </div>
-    <h1>Hello World!</h1>
+    <!-- <canvas id="world"></canvas> -->
+<div class="parallax">
+  <div class="caption">
+      <span class="border">Olympic Games</span>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <canvas id=c1 width=400 height=210></canvas>
+</div>
+
     
-    <script type='text/javascript' src='../static/js/anime.js'></script>
+
+<script>
+  var canvas = document.getElementById('c1').getContext('2d');
+  var radius = 50;
+
+  var circles = [
+    {
+      color:"rgb(0,133,198)",
+      x : 2*radius - radius/2,
+      y : 2*radius,
+      isTop: true
+    } , {
+      color:'black',
+      x : 4*radius,
+      y : 2*radius,
+      isTop: true
+    } , {
+      color:'rgb(223,0,32)',
+      x : 6*radius + radius/2,
+      y : 2*radius,
+      isTop: true
+    } , {
+      color:'rgb(244,195,0)',
+      x : 3*radius - radius/4,
+      y : 3*radius,
+      isTop: false
+    } , {
+      color:'rgb(50,170,83)',
+      x : 5*radius + radius/4,
+      y : 3*radius,
+      isTop: false
+    }
+  ];
+
+  function drawArc(canvas, color, x, y, start, end) {
+    if (color !== 'white') drawArc(canvas, 'white', x, y, start, end);
+
+    canvas.lineWidth = color === 'white' ? 16 : 10;
+    canvas.strokeStyle = color;
+
+    canvas.beginPath();
+    canvas.arc(x, y, radius, start - Math.PI/2, end - Math.PI/2, true);
+    canvas.stroke();
+  }
+
+  circles.forEach(function(circle){
+    drawArc(canvas, circle.color, circle.x, circle.y, 0, Math.PI*2);
+  });
+
+  circles.forEach(function(circle){
+    if (circle.isTop) {
+      drawArc(canvas, circle.color, circle.x, circle.y, Math.PI, Math.PI*2/3);
+      drawArc(canvas, circle.color, circle.x, circle.y, Math.PI*5/3, Math.PI*4/3);
+    } else {
+      drawArc(canvas, circle.color, circle.x, circle.y, 0, Math.PI/3);
+      drawArc(canvas, circle.color, circle.x, circle.y, Math.PI*2/3, Math.PI/3);
+    }
+  });
+
+  anime({
+    targets: 'canvas',
+    translateX: 450,
+    duration: 9000
+  });
+</script>
+
+
+
+    
+
+  <div class="jumbotron text-center jumbotron-fluid">
+    <h1>Project Description:</h1>
+    <p>The database we used for this project looks at Olympic records from 1896 to 2016, that were originaly scrapped from www.sports-reference.com. We designed a few queries and identified a few different ways to visualize the data.</p>
+  </div>
+
+
+
+<div class="container-fluid bg-dark">
+  <!-- <div class="row"> -->
+        <div class="col">
+          <div id="pieChart"></div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div id="barChart"></div>  
+          </div>
+          <div class="row">
+            <div id="lineChart"></div>
+          </div>
+        </div>
+    <!-- </div> -->
+</div>
+
+
+<div class="container-fluid shadow bg-dark">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+<div class="container-fluid bg-dark shadow">
+  <div id='dashboard'></div>
+  <br>
+  <br>
+  <br>
+  <div class="scatter"></div>
+  <br>
+  <br>
+  
+      <script type="text/javascript" src="../static/js/view1.js"></script>
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script type="text/javascript" src="../static/js/app_medal.js"></script>
+      <script type="text/javascript" src="../static/js/app_scatter.js"></script>
+</div>
+
+<div class="parallax"></div>
+    <!-- <script type='text/javascript' src='../static/js/anime.js'></script> -->
 </body>
 </html>

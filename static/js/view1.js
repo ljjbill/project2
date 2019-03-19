@@ -187,57 +187,6 @@ dsPieChart();
 ############# BAR CHART ###################
 -------------------------------------------
 */
-
-
-// var datasetBarChart = [
-//     { country: "All", sports: "Oranges", measure: 63850.4963 }, 
-//     { country: "All", sports: "Apples", measure: 78258.0845 }, 
-//     { country: "All", sports: "Grapes", measure: 60610.2355 }, 
-//     { country: "All", sports: "Figs", measure: 30493.1686 }, 
-//     { country: "All", sports: "Mangos", measure: 56097.0151 }, 
-//     { country: "Sam", sports: "Oranges", measure: 19441.5648 }, 
-//     { country: "Sam", sports: "Apples", measure: 25922.0864 }, 
-//     { country: "Sam", sports: "Grapes", measure: 9720.7824 }, 
-//     { country: "Sam", sports: "Figs", measure: 6480.5216 }, 
-//     { country: "Sam", sports: "Mangos", measure: 19441.5648 }, 
-//     { country: "Peter", sports: "Oranges", measure: 22913.2728 }, 
-//     { country: "Peter", sports: "Apples", measure: 7637.7576 }, 
-//     { country: "Peter", sports: "Grapes", measure: 23549.7526 }, 
-//     { country: "Peter", sports: "Figs", measure: 1909.4394 }, 
-//     { country: "Peter", sports: "Mangos", measure: 7637.7576 }, 
-//     { country: "John", sports: "Oranges", measure: 1041.5124 }, 
-//     { country: "John", sports: "Apples", measure: 2430.1956 }, 
-//     { country: "John", sports: "Grapes", measure: 15275.5152 }, 
-//     { country: "John", sports: "Figs", measure: 4166.0496 }, 
-//     { country: "John", sports: "Mangos", measure: 11803.8072 }, 
-//     { country: "Rick", sports: "Oranges", measure: 7406.3104 }, 
-//     { country: "Rick", sports: "Apples", measure: 2545.9192 }, 
-//     { country: "Rick", sports: "Grapes", measure: 1620.1304 }, 
-//     { country: "Rick", sports: "Figs", measure: 8563.5464 }, 
-//     { country: "Rick", sports: "Mangos", measure: 3008.8136 }, 
-//     { country: "Lenny", sports: "Oranges", measure: 7637.7576 }, 
-//     { country: "Lenny", sports: "Apples", measure: 35411.4216 }, 
-//     { country: "Lenny", sports: "Grapes", measure: 8332.0992 }, 
-//     { country: "Lenny", sports: "Figs", measure: 6249.0744 }, 
-//     { country: "Lenny", sports: "Mangos", measure: 11803.8072 }, 
-//     { country: "Paul", sports: "Oranges", measure: 3182.399 }, 
-//     { country: "Paul", sports: "Apples", measure: 867.927 }, 
-//     { country: "Paul", sports: "Grapes", measure: 1808.18125 }, 
-//     { country: "Paul", sports: "Figs", measure: 795.59975 }, 
-//     { country: "Paul", sports: "Mangos", measure: 578.618 }, 
-//     { country: "Steve", sports: "Oranges", measure: 2227.6793 }, 
-//     { country: "Steve", sports: "Apples", measure: 3442.7771 }, 
-//     { country: "Steve", sports: "Grapes", measure: 303.77445 }, 
-//     { country: "Steve", sports: "Figs", measure: 2328.93745 }, 
-//     { country: "Steve", sports: "Mangos", measure: 1822.6467 },
-//     { country: "Bill", sports: "Mangos", measure: 2227.6793 }, 
-//     { country: "Bill", sports: "Apples", measure: 3442.7771 }, 
-//     { country: "Bill", sports: "Grapes", measure: 303.77445 }, 
-//     { country: "Bill", sports: "One", measure: 1822.6467 },
-//     { country: "Bill", sports: "Two", measure: 1822.6467 },
-//     { country: "Bill", sports: "Three", measure: 1822.6467 },
-//     ]
-// 	;
 	
 	var country = "All";
     
@@ -318,7 +267,7 @@ dsPieChart();
 			var svg = d3.select("#barChart")
 					.append("svg")
 					.attr("width", width + margin.left + margin.right)
-					.attr("height", height + margin.top + margin.bottom+1000)
+					.attr("height", height + margin.top + margin.bottom+100)
 					.attr("id","barChartPlot")
 					;
 			

@@ -29,14 +29,14 @@ var cValue = function(d) { return d.Season;},
    
 
 // add the graph canvas to the body of the webpage
-var svg = d3.select("body").append("svg")
+var svg = d3.select(".scatter").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // add the tooltip area to the webpage
-var tooltip = d3.select("body").append("div")
+var tooltip = d3.select(".scatter").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0)
 	.style("display", "block")
@@ -45,9 +45,9 @@ var tooltip = d3.select("body").append("div")
 	
 
 // load data
-const url = "/api/scatter_plot"
+const url2 = "/api/scatter_plot"
 
-var dataset = d3.json(url, function(error, data) {
+var dataset = d3.json(url2, function(error, data) {
 
   // change string (from CSV) into number format
   data.forEach(function(d) {
