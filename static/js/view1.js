@@ -78,9 +78,9 @@ function dsPieChart(){
 				.append("svg:g")                //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
 					.attr("class", "slice")    //allow us to style things in the slices (like text)
                     .on("mouseover", mouseover)
-                    .on("mouseover.toolTip", tooltipin)
+                    .on("mouseover.toolTip_v1", tooltipin)
                         .on("mouseout", mouseout)
-                        .on("mouseout.toolTip", tooltipout)
+                        .on("mouseout.toolTip_v1", tooltipout)
 						.on("click", up)
 						;
 						
@@ -151,11 +151,11 @@ function dsPieChart(){
 				
 		}
 
-        var toolTip = d3.select("body").append("div").attr("class", "toolTip");
+        var toolTip_v1 = d3.select("body").append("div").attr("class", "toolTip_v1");
 
             // Step 2: Create "mouseover" event listener to display tooltip
         function tooltipin(d) {
-            toolTip.style("display", "block")
+            toolTip_v1.style("display", "block")
                 .html(
                     `${formatAsPercentage(d.data.measure)}
                 of the medals won by<hr><strong>${(d.data.country)}<strong>`)
@@ -165,7 +165,7 @@ function dsPieChart(){
             }
             // Step 3: Create "mouseout" event listener to hide tooltip
         function tooltipout() {
-                toolTip.style("display", "none");
+                toolTip_v1.style("display", "none");
             };
 
 
@@ -345,11 +345,11 @@ dsPieChart();
 					;
 			
             // Step 1: Append tooltip div
-            var toolTip = d3.select("body").append("div").attr("class", "toolTip");
+            var toolTip_v1 = d3.select("body").append("div").attr("class", "toolTip_v1");
 
             // Step 2: Create "mouseover" event listener to display tooltip
             barGroup.on("mouseover", function(d) {
-            toolTip.style("display", "block")
+            toolTip_v1.style("display", "block")
                 .html(
                     `<strong>${(d.sports)}<strong><hr>${d.measure}
                 medal(s) won`)
@@ -359,7 +359,7 @@ dsPieChart();
             })
             // Step 3: Create "mouseout" event listener to hide tooltip
             .on("mouseout", function() {
-                toolTip.style("display", "none");
+                toolTip_v1.style("display", "none");
             });
                     
 
@@ -507,11 +507,11 @@ dsPieChart();
                 ;
                 
         // Step 1: Append tooltip div
-        var toolTip = d3.select("body").append("div").attr("class", "toolTip");
+        var toolTip_v1 = d3.select("body").append("div").attr("class", "toolTip_v1");
 
         // Step 2: Create "mouseover" event listener to display tooltip
         barGroup.on("mouseover", function(d) {
-        toolTip.style("display", "block")
+        toolTip_v1.style("display", "block")
             .html(
                 `<strong>${(d.sports)}<strong><hr>${d.measure}
             medal(s) won`)
@@ -520,7 +520,7 @@ dsPieChart();
         })
         // Step 3: Create "mouseout" event listener to hide tooltip
         .on("mouseout", function() {
-            toolTip.style("display", "none");
+            toolTip_v1.style("display", "none");
         });
     
         plot.selectAll("text")
@@ -777,11 +777,11 @@ dsPieChart();
             // .append("title")
             // .text(function(d) { return d.year + ": " + formatAsInteger(d.measure); })
             ;
-            var toolTip = d3.select("body").append("div").attr("class", "toolTip");
+            var toolTip_v1 = d3.select("body").append("div").attr("class", "toolTip_v1");
 
             // Step 2: Create "mouseover" event listener to display tooltip
         circleGroup.on("mouseover", function(d) {
-            toolTip.style("display", "block")
+            toolTip_v1.style("display", "block")
                 .html(
                     `<strong>${(d.year)}<strong><hr>${d.measure}
                 medal(s) won`)
@@ -791,7 +791,7 @@ dsPieChart();
             })
             // Step 3: Create "mouseout" event listener to hide tooltip
             .on("mouseout", function() {
-                toolTip.style("display", "none");
+                toolTip_v1.style("display", "none");
             });
 
         svg.append("text")
@@ -906,11 +906,11 @@ dsPieChart();
         //    // add color
         //     .attr("stroke", colorChosen)
         //    ;
-        var toolTip = d3.select("body").append("div").attr("class", "toolTip");
+        var toolTip_v1 = d3.select("body").append("div").attr("class", "toolTip_v1");
 
             // Step 2: Create "mouseover" event listener to display tooltip
         circleGroup.on("mouseover", function(d) {
-            toolTip.style("display", "block")
+            toolTip_v1.style("display", "block")
                 .html(
                     `<strong>${(d.year)}<strong><hr>${d.measure}
                 medal(s) won`)
@@ -920,7 +920,7 @@ dsPieChart();
             })
             // Step 3: Create "mouseout" event listener to hide tooltip
             .on("mouseout", function() {
-                toolTip.style("display", "none");
+                toolTip_v1.style("display", "none");
             });   
 
         //    path

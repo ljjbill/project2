@@ -29,7 +29,7 @@
   		} 
 
 /*for line chart*/
-.axis path, .axis line {
+#lineChart .axis path, #lineChart .axis line {
     fill: none;
     stroke: black;
     shape-rendering: crispEdges; //The shape-rendering property is an SVG attribute, used here to make sure our axis and its tick mark lines are pixel-perfect. 
@@ -41,7 +41,7 @@
   stroke-width: 3px;
 }
 
-.dot {
+#lineChart .dot {
   /*fill: white;*/
   /*stroke: steelblue;*/
   stroke-width: 1.5px;
@@ -65,7 +65,9 @@
     fill: black;
 }  
 
-.toolTip {
+
+
+.toolTip_v1 {
   position: absolute;
   display: none;
   min-width: 80px;
@@ -76,6 +78,9 @@
   text-align: center;
   pointer-events: none;
 }
+
+
+
 
 .yAxis {
     font-family: verdana;
