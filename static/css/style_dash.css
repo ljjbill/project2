@@ -11,7 +11,7 @@ rect:hover {  fill:blue; }
 
 .axis path,
 .axis line {
-  fill: none;
+  /* fill: none; */
   stroke: white;
   shape-rendering: crispEdges;
 }
