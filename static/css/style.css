@@ -6,6 +6,15 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+h6 {
+    font-style: italic;
+}
     .caption {
         position: absolute;
         left: 0;
