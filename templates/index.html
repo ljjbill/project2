@@ -25,94 +25,13 @@
 
 <body>
     <!-- <canvas id="world"></canvas> -->
-<div class="parallax">
-  <div class="caption">
+  <div class="parallax">
+    <div class="caption">
       <span class="border">Olympic Games</span>
+    </div>
+    <br><br><br><br><br><br> <!--6 spaces-->
+    <canvas id=c1 width=400 height=210></canvas>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <canvas id=c1 width=400 height=210></canvas>
-</div>
-
-    
-
-<script>
-  var canvas = document.getElementById('c1').getContext('2d');
-  var radius = 50;
-
-  var circles = [
-    {
-      color:"rgb(0,133,198)",
-      x : 2*radius - radius/2,
-      y : 2*radius,
-      isTop: true
-    } , {
-      color:'black',
-      x : 4*radius,
-      y : 2*radius,
-      isTop: true
-    } , {
-      color:'rgb(223,0,32)',
-      x : 6*radius + radius/2,
-      y : 2*radius,
-      isTop: true
-    } , {
-      color:'rgb(244,195,0)',
-      x : 3*radius - radius/4,
-      y : 3*radius,
-      isTop: false
-    } , {
-      color:'rgb(50,170,83)',
-      x : 5*radius + radius/4,
-      y : 3*radius,
-      isTop: false
-    }
-  ];
-
-  function drawArc(canvas, color, x, y, start, end) {
-    if (color !== 'white') drawArc(canvas, 'white', x, y, start, end);
-
-    canvas.lineWidth = color === 'white' ? 16 : 10;
-    canvas.strokeStyle = color;
-
-    canvas.beginPath();
-    canvas.arc(x, y, radius, start - Math.PI/2, end - Math.PI/2, true);
-    canvas.stroke();
-  }
-
-  circles.forEach(function(circle){
-    drawArc(canvas, circle.color, circle.x, circle.y, 0, Math.PI*2);
-  });
-
-  circles.forEach(function(circle){
-    if (circle.isTop) {
-      drawArc(canvas, circle.color, circle.x, circle.y, Math.PI, Math.PI*2/3);
-      drawArc(canvas, circle.color, circle.x, circle.y, Math.PI*5/3, Math.PI*4/3);
-    } else {
-      drawArc(canvas, circle.color, circle.x, circle.y, 0, Math.PI/3);
-      drawArc(canvas, circle.color, circle.x, circle.y, Math.PI*2/3, Math.PI/3);
-    }
-  });
-
-  anime({
-    targets: 'canvas',
-    translateX: 450,
-    duration: 9000,
-    rotate: {
-      value: 360,
-      duration: 1800,
-      easing: 'easeInOutSine'
-    },
-  });
-</script>
-
-
-
-    
 
   <div class="jumbotron text-center jumbotron-fluid">
     <h1>Project Description:</h1>
@@ -121,127 +40,164 @@
 
   <div class="parallax2"></div>
 
-<div class="container-fluid bg-dark">
-  <br>
+  <div class="container-fluid bg-dark">
+    <br><br> <!--2 spaces-->
     <h3 class="text-white">Olympic Sports, Countries and thier Medals</h3>
-    <br>
-    <br>
-        <div class="col">
-          <div id="pieChart"></div>
-        </div>
-        <div class="col">
-          <div class="row">
-            <div id="barChart"></div>  
-          </div>
-          <div class="row">
-            <div id="lineChart"></div>
-          </div>
-        </div>
-</div>
+    <br><br><br> <!--3 spaces-->
+    <div class="col">
+      <div id="pieChart"></div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div id="barChart"></div>  
+      </div>
+      <div class="row">
+        <div id="lineChart"></div>
+      </div>
+    </div>
+  </div>
 
 
-<div class="container-fluid shadow bg-dark">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  <div class="container-fluid shadow bg-dark">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!--22 spaces for pie-bar-line chart-->
     <div class="box">
         <!-- stuff -->
       <h6 class="text-white bet_time"><ion-icon name="hammer"></ion-icon><ion-icon name="color-palette"></ion-icon><ion-icon name="brush"></ion-icon> Bill Liu</h6>
     </div>
-    <br>
+    <br> <!--1 space-->
     <h4 class='text-white'>Description:</h4>
     <p class="text-white">This visualization shows the total Olympic medals won by country, year and sports. When you click on the country from the pie chart on the left, you will see their medal trend by year as well as the medal breakdown by sports. For example, US medals are mostly concentrated in athletes and swimming.</p>
-    <br><br>
+    <br><br> <!--2 spaces-->
 
-</div>
-
-<div class="parallax2"></div>
-
-<div class="container-fluid bg-dark shadow">
-  <br>
-  <br>
-  <br>
-  <h3 class='text-white'>The Olympic Top 10 Countries</h3>
-  <br>
-  <!-- <button>Click Me!</button> -->
-  <div id='dashboard'></div>
-  <br>
-  <br>
-  <div class="box">
-      <!-- stuff -->
-    <h6 class="text-white bet_time"><ion-icon name="hammer"></ion-icon><ion-icon name="color-palette"></ion-icon><ion-icon name="brush"></ion-icon> Tejas Babu</h6>
   </div>
-  <h4 class='text-white'>Description:</h4>
-  <p class='text-white'>In this visualization we can see the number of medals won per country. Hovering over a histogram on your will automatically update information on the pie chart and the legend of the vizualisation to reflect the correct medal split of the country you selected.
-    On your right, if you hover over a slice in the pie chart the histogram will update its values per country based on the type of the medal you are selecting.</p>
-  <br>
-  <br>    
-</div>
 
-<div class="parallax2"></div>
+  <div class="parallax2"></div>
 
-
-<div class="container-fluid bg-dark shadow">
-  <br>
-  <br>
-  <br>
-  <h3 class='text-white'>Number of Athletes per Sports for each Olympic edition</h3>
-  <br>
-  <div class="row shadow rounded p-3 mb-2 bg-white">
-    <div class="col-md-1">
-      <h1>
-
-      </h1>
+  <div class="container-fluid bg-dark shadow">
+    <br><br> <!--2 spaces-->
+    <h3 class='text-white'>The Olympic Top 10 Countries</h3>
+    <br><br> <!--2 spaces-->
+    <!-- <button>Click Me!</button> -->
+    <div id='dashboard'></div>
+    <br><br> <!--2 spaces-->
+    <div class="box">
+        <!-- stuff -->
+      <h6 class="text-white bet_time"><ion-icon name="hammer"></ion-icon><ion-icon name="color-palette"></ion-icon><ion-icon name="brush"></ion-icon> Tejas Babu</h6>
     </div>
-    <div class="col-md-8">
-      <div class="scatter"></div>
-    </div>
+    <h4 class='text-white'>Description:</h4>
+    <p class='text-white'>In this visualization we can see the number of medals won per country. Hovering over a histogram on your will automatically update information on the pie chart and the legend of the vizualisation to reflect the correct medal split of the country you selected.
+      On your right, if you hover over a slice in the pie chart the histogram will update its values per country based on the type of the medal you are selecting.</p>
+    <br><br> <!--2 spaces-->    
   </div>
-  <br>
-  <br>
-  <div class="box">
-      <!-- stuff -->
-    <h6 class="text-white bet_time"><ion-icon name="hammer"></ion-icon><ion-icon name="color-palette"></ion-icon><ion-icon name="brush"></ion-icon> Tejas Babu</h6>
-  </div>
-  <h3 class="text-white">Description:</h3>
-  <p class="text-white">The vizulation displays the number of athletes participating each olympic edition. This includes both winter and summer olympic games. </p>
-  <p class="text-white">Through this graph we can also derive other information for example:</p>
-  <ol class="text-white">
-    <li>1896 first time Olympic held in Athens, Greece.</li>
-    <li>winter game started first time 1924.</li>
-    <li>In 1940 and 1944 Olympic did not held because of Worl War -II,</li>
-    <li>Swiming  for Summer 2008 has highest no athlete -- 200.</li>
-  </ol>
-  <br>
-  <br>
-</div>
 
-<div class="parallax3"></div>
+  <div class="parallax2"></div>
+
+
+  <div class="container-fluid bg-dark shadow">
+    <br><br> <!--2 spaces-->
+    <h3 class='text-white'>Number of Athletes per Sports for each Olympic edition</h3>
+    <br><br> <!--2 spaces-->
+    <div class="row shadow rounded p-3 mb-2 bg-white">
+      <div class="col-md-1">
+        <h1>
+
+        </h1>
+      </div>
+      <div class="col-md-8">
+        <div class="scatter"></div>
+      </div>
+    </div>
+    <br><br> <!--2 spaces-->
+    <div class="box">
+        <!-- stuff -->
+      <h6 class="text-white bet_time"><ion-icon name="hammer"></ion-icon><ion-icon name="color-palette"></ion-icon><ion-icon name="brush"></ion-icon> Tejas Babu</h6>
+    </div>
+    <h4 class="text-white">Description:</h4>
+    <p class="text-white">The vizulation displays the number of athletes participating in the olympic games per sport. If you hover an individual dot inside the scatter plot you will see what sport it is associated with and how many athletes participated in the event. This includes both winter and summer olympic games. </p>
+    <p class="text-white">Through this graph we can also derive other information for example:</p>
+    <ol class="text-white">
+      <li>1896 first time Olympic held in Athens, Greece.</li>
+      <li>winter game started first time 1924.</li>
+      <li>In 1940 and 1944 Olympic did not held because of Worl War -II,</li>
+      <li>Swiming  for Summer 2008 has highest no athlete -- 200.</li>
+    </ol>
+    <br><br> <!--2 spaces-->
+  </div>
+
+  <div class="parallax3"></div>
 
 <script type="text/javascript" src="../static/js/view1.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script type="text/javascript" src="../static/js/app_medal.js"></script>
 <script type="text/javascript" src="../static/js/app_scatter.js"></script>
-
-    <!-- <script type='text/javascript' src='../static/js/anime.js'></script> -->
+<script>
+    var canvas = document.getElementById('c1').getContext('2d');
+    var radius = 50;
+  
+    var circles = [
+      {
+        color:"rgb(0,133,198)",
+        x : 2*radius - radius/2,
+        y : 2*radius,
+        isTop: true
+      } , {
+        color:'black',
+        x : 4*radius,
+        y : 2*radius,
+        isTop: true
+      } , {
+        color:'rgb(223,0,32)',
+        x : 6*radius + radius/2,
+        y : 2*radius,
+        isTop: true
+      } , {
+        color:'rgb(244,195,0)',
+        x : 3*radius - radius/4,
+        y : 3*radius,
+        isTop: false
+      } , {
+        color:'rgb(50,170,83)',
+        x : 5*radius + radius/4,
+        y : 3*radius,
+        isTop: false
+      }
+    ];
+  
+    function drawArc(canvas, color, x, y, start, end) {
+      if (color !== 'white') drawArc(canvas, 'white', x, y, start, end);
+  
+      canvas.lineWidth = color === 'white' ? 16 : 10;
+      canvas.strokeStyle = color;
+  
+      canvas.beginPath();
+      canvas.arc(x, y, radius, start - Math.PI/2, end - Math.PI/2, true);
+      canvas.stroke();
+    }
+  
+    circles.forEach(function(circle){
+      drawArc(canvas, circle.color, circle.x, circle.y, 0, Math.PI*2);
+    });
+  
+    circles.forEach(function(circle){
+      if (circle.isTop) {
+        drawArc(canvas, circle.color, circle.x, circle.y, Math.PI, Math.PI*2/3);
+        drawArc(canvas, circle.color, circle.x, circle.y, Math.PI*5/3, Math.PI*4/3);
+      } else {
+        drawArc(canvas, circle.color, circle.x, circle.y, 0, Math.PI/3);
+        drawArc(canvas, circle.color, circle.x, circle.y, Math.PI*2/3, Math.PI/3);
+      }
+    });
+  
+    anime({
+      targets: 'canvas',
+      translateX: 450,
+      duration: 9000,
+      rotate: {
+        value: 360,
+        duration: 1800,
+        easing: 'easeInOutSine'
+      },
+    });
+</script>
 </body>
 </html>

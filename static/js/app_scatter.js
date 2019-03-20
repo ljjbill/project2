@@ -102,7 +102,7 @@ var dataset = d3.json(url2, function(error, data) {
       // Step 2: Create "mouseover" event listener to display tooltip_sc
       dotGroup2.on("mouseover", function(d) {
       tooltip_sc.style("display", "block")
-          .html("Sports:" + [d.Sports] + "<br/> (Year:" + xValue(d) + ",No of Athlete: " + yValue(d) + ")")
+          .html("Sports: " + [d.Sports] + "<br/> (Year: " + xValue(d) + ", Number of Athletes: " + yValue(d) + ")")
           .style("left", d3.event.pageX + "px")
           .style("top", d3.event.pageY + "px");
       })
