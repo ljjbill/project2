@@ -1,6 +1,6 @@
 var margin = {top: 10, right: 40, bottom: 40, left: 40},
-    width = 900 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 1100 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
 
 /* 
  * value accessor - returns the value to encode for a given data object.
@@ -90,25 +90,11 @@ var dataset = d3.json(url2, function(error, data) {
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
-      .attr("r", 3)
+      .attr("r", 4)
       .attr("cx", xMap)
       .attr("cy", yMap)
+      .style("opacity", .6)
       .style("fill", function(d) { return color(cValue(d));}) ;
-      // .on("mouseover", function(d) {
-      //     tooltip_sc.transition()
-      //          .duration(200)
-      //          .style("opacity", .9);
-      //    tooltip_sc.html("Sports:" + [d.Sports] + "<br/> (Year:" + xValue(d) + ",No of Athlete: " + yValue(d) + ")")
-      //        .style("left", (d3.event.pageX + 5) + "px")
-      //        .style("top", (d3.event.pageY - 28) + "px")
-		  //   ;
-			 
-	    //   })
-      // .on("mouseout", function(d) {
-      //     tooltip_sc.transition()
-      //          .duration(500)
-      //          .style("opacity", 0);
-      // });
 
 
       var tooltip_sc = d3.select("body").append("div").attr("class", "tooltip_sc");

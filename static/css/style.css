@@ -32,6 +32,15 @@
         background-size: cover;
     }
 
+    .parallax3 {
+        background-image: url("https://i.redd.it/b5qlzuxwd8r01.gif");
+        min-height: 1000px; 
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
 .jumbotron {
     margin-bottom: 0 !important;
 }

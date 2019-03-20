@@ -18,6 +18,7 @@
     <script src='//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js'></script>
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script src="http://d3js.org/d3.v2.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
   </head>
 
 
@@ -110,13 +111,14 @@
 
   <div class="jumbotron text-center jumbotron-fluid">
     <h1>Project Description:</h1>
-    <p>The database we used for this project looks at Olympic records from 1896 to 2016, that were originaly scrapped from www.sports-reference.com. We designed a few queries and identified a few different ways to visualize the data.</p>
+    <p>In this project we explore Olympic games and the data The database we used for this project looks at Olympic records from 1896 to 2016, that were originaly scrapped from www.sports-reference.com. We designed a few queries and identified a few different ways to visualize the data.</p>
   </div>
 
   <div class="parallax2"></div>
 
 <div class="container-fluid bg-dark">
-  <!-- <div class="row"> -->
+  <br>
+    <h3 class="text-white">Olympic Sports, Countries and thier Medals</h3>
     <br>
     <br>
         <div class="col">
@@ -130,7 +132,6 @@
             <div id="lineChart"></div>
           </div>
         </div>
-    <!-- </div> -->
 </div>
 
 
@@ -156,6 +157,9 @@
     <br>
     <br>
     <br>
+    <h4 class='text-white'>Description:</h4>
+    <p class="text-white">This visualization shows the total Olympic medals won by country, year and sports. When you click on the country from the pie chart on the left, you will see their medal trend by year as well as the medal breakdown by sports. For example, US medals are mostly concentrated in athletes and swimming.</p>
+    <p class="text-white justify-content-end">credit: Bill <ion-icon name="brush"></ion-icon></p>
     <br>
     <br>
 </div>
@@ -166,12 +170,15 @@
   <br>
   <br>
   <br>
-  <h3 class='text-white'>Title</h3>
+  <h3 class='text-white'>Olympic Top 10 Countries</h3>
   <br>
+  <button>Click Me!</button>
   <div id='dashboard'></div>
   <br>
   <br>
-  <br>
+  <h4 class='text-white'>Description:</h4>
+  <p class='text-white'>In this visualization we can see the number of medals won per country. Hovering over a histogram on your will automatically update information on the pie chart and the legend of the vizualisation to reflect the correct medal split of the country you selected.
+    On your right, if you hover over a slice in the pie chart the histogram will update its values per country based on the type of the medal you are selecting.</p>
   <br>
   <br>    
 </div>
@@ -183,7 +190,7 @@
   <br>
   <br>
   <br>
-  <h3 class='text-white'>Title</h3>
+  <h3 class='text-white'>Number of Athletes per Sports for each Olympic edition</h3>
   <br>
   <div class="row shadow rounded p-3 mb-2 bg-white">
     <div class="col-md-1">
@@ -195,11 +202,20 @@
       <div class="scatter"></div>
     </div>
   </div>
+  <h3 class="text-white">Description:</h3>
+  <p class="text-white">The vizulation displays the number of athletes participating each olympic edition. This includes both winter and summer olympic games. </p>
+  <p class="text-white">Through this graph we can also derive other information for example:</p>
+  <ol class="text-white">
+    <li>1896 first time Olympic held in Athens, Greece.</li>
+    <li>winter game started first time 1924.</li>
+    <li>In 1940 and 1944 Olympic did not held because of Worl War -II,</li>
+    <li>Swiming  for Summer 2008 has highest no athlete -- 200.</li>
+  </ol>
   <br>
   <br>
 </div>
 
-<div class="parallax"></div>
+<div class="parallax3"></div>
 
 <script type="text/javascript" src="../static/js/view1.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
