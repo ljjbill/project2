@@ -209,8 +209,8 @@ dsPieChart();
     
     
             var margin = {top: 30, right: 5, bottom: 20, left: 50},
-            width = 500 - margin.left - margin.right,
-           height = 250 - margin.top - margin.bottom,
+            width = 850 - margin.left - margin.right,
+            height = 250 - margin.top - margin.bottom,
             colorBar = d3.scale.category20(),
             barPadding = 1
             ;
@@ -569,54 +569,6 @@ dsPieChart();
 ############# LINE CHART ##################
 -------------------------------------------
 */
-
-// var datasetLineChart = [
-//     { country: "All", year: 2008, measure: 289309 }, 
-//     { country: "All", year: 2009, measure: 234998 }, 
-//     { country: "All", year: 2010, measure: 310900 }, 
-//     { country: "All", year: 2011, measure: 223900 }, 
-//     { country: "All", year: 2012, measure: 234500 }, 
-//     { country: "Sam", year: 2008, measure: 81006.52 }, 
-//     { country: "Sam", year: 2009, measure: 70499.4 }, 
-//     { country: "Sam", year: 2010, measure: 96379 }, 
-//     { country: "Sam", year: 2011, measure: 64931 }, 
-//     { country: "Sam", year: 2012, measure: 70350 }, 
-//     { country: "Peter", year: 2008, measure: 63647.98 }, 
-//     { country: "Peter", year: 2009, measure: 61099.48 }, 
-//     { country: "Peter", year: 2010, measure: 87052 }, 
-//     { country: "Peter", year: 2011, measure: 58214 }, 
-//     { country: "Peter", year: 2012, measure: 58625 }, 
-//     { country: "Rick", year: 2008, measure: 23144.72 }, 
-//     { country: "Rick", year: 2009, measure: 14099.88 }, 
-//     { country: "Rick", year: 2010, measure: 15545 }, 
-//     { country: "Rick", year: 2011, measure: 11195 }, 
-//     { country: "Rick", year: 2012, measure: 11725 }, 
-//     { country: "John", year: 2008, measure: 34717.08 }, 
-//     { country: "John", year: 2009, measure: 30549.74 }, 
-//     { country: "John", year: 2010, measure: 34199 }, 
-//     { country: "John", year: 2011, measure: 33585 }, 
-//     { country: "John", year: 2012, measure: 35175 }, 
-//     { country: "Lenny", year: 2008, measure: 69434.16 }, 
-//     { country: "Lenny", year: 2009, measure: 46999.6 }, 
-//     { country: "Lenny", year: 2010, measure: 62180 }, 
-//     { country: "Lenny", year: 2011, measure: 40302 }, 
-//     { country: "Lenny", year: 2012, measure: 42210 }, 
-//     { country: "Paul", year: 2008, measure: 7232.725 }, 
-//     { country: "Paul", year: 2009, measure: 4699.96 }, 
-//     { country: "Paul", year: 2010, measure: 6218 }, 
-//     { country: "Paul", year: 2011, measure: 8956 }, 
-//     { country: "Paul", year: 2012, measure: 9380 }, 
-//     { country: "Steve", year: 2008, measure: 10125.815 }, 
-//     { country: "Steve", year: 2009, measure: 7049.94 }, 
-//     { country: "Steve", year: 2010, measure: 9327 }, 
-//     { country: "Steve", year: 2011, measure: 6717 }, 
-//     { country: "Steve", year: 2012, measure: 7035 },
-//     { country: "Bill", year: 2008, measure: 10125.815 }, 
-//     { country: "Bill", year: 2009, measure: 7049.94 }, 
-//     { country: "Bill", year: 2010, measure: 9327 },  
-//     { country: "Bill", year: 2012, measure: 7035 }
-//     ]
-//     ;
     
     // set initial year value
     var country = "All";
@@ -634,7 +586,7 @@ dsPieChart();
     function dsLineChartBasics() {
     
         var margin = {top: 20, right: 10, bottom: 0, left: 50},
-            width = 500 - margin.left - margin.right,
+            width = 850 - margin.left - margin.right,
             height = 160 - margin.top - margin.bottom
             ;
             

@@ -1,6 +1,6 @@
-var margin = {top: 10, right: 40, bottom: 30, left: 40},
-    width = 1100 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
+var margin = {top: 10, right: 40, bottom: 40, left: 40},
+    width = 900 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 /* 
  * value accessor - returns the value to encode for a given data object.
@@ -60,6 +60,7 @@ var dataset = d3.json(url2, function(error, data) {
   xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
   yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
 
+
   // x-axis
   svg.append("g")
       .attr("class", "x axis")
@@ -69,7 +70,7 @@ var dataset = d3.json(url2, function(error, data) {
       .attr("class", "label")
       .attr("x", width)
       .attr("y", -6)
-      .style("text-anchor", "end")
+      .style("text-anchor", "start")
       .text("Year");
 
   // y-axis
@@ -89,7 +90,7 @@ var dataset = d3.json(url2, function(error, data) {
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
-      .attr("r", 5.5)
+      .attr("r", 3)
       .attr("cx", xMap)
       .attr("cy", yMap)
       .style("fill", function(d) { return color(cValue(d));}) 
