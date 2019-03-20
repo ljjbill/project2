@@ -58,6 +58,11 @@ def home():
    """Return the homepage"""
    return render_template('index.html')
 
+@app.route('/scatter')
+def scat():
+   """Return the homepage"""
+   return render_template('index_scat.html')
+
 
 
 @app.route('/api/pie_chart', methods=['GET'])

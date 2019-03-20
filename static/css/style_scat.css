@@ -1,4 +1,4 @@
-<style>
+
 body {
   font: 11px sans-serif;
 }
@@ -14,7 +14,21 @@ body {
   stroke: #000;
 }
 
-  .tooltip {
+  .tooltip_sc {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
+    pointer-events: none;
+  }
+  
+  
+
+  /* {
   position: absolute;
   width: 190px;
   height: 40px;
@@ -23,10 +37,7 @@ body {
   font: 12px sans-serif;
  color: #ff0000;
  text-align: center;
-  //background: #38eeff;
+  background: #38eeff;
   background: #C0C0C0;
   border: 0;
-  border-radius: 10px;
-  
-  }
-</style>
+  border-radius: 10px;} */

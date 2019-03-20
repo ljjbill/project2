@@ -35,12 +35,12 @@ var svg = d3.select(".scatter").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-// add the tooltip area to the webpage
-var tooltip = d3.select(".scatter").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0)
-	.style("display", "block")
-	.style("color","Gray");
+// add the tooltip_sc area to the webpage
+// var tooltip_sc = d3.select(".scatter").append("div")
+//     .attr("class", "tooltip_sc")
+//     .style("opacity", 0)
+// 	.style("display", "block")
+// 	.style("color","Gray");
 	
 	
 
@@ -86,28 +86,43 @@ var dataset = d3.json(url2, function(error, data) {
       .text("No Of Athlete");
 
   // draw dots
-  svg.selectAll(".dot")
+  var dotGroup2 = svg.selectAll(".dot")
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
       .attr("r", 3)
       .attr("cx", xMap)
       .attr("cy", yMap)
-      .style("fill", function(d) { return color(cValue(d));}) 
-      .on("mouseover", function(d) {
-          tooltip.transition()
-               .duration(200)
-               .style("opacity", .9);
-         tooltip.html("Sports:" + [d.Sports] + "<br/> (Year:" + xValue(d) + ",No of Athlete: " + yValue(d) + ")")
-             .style("left", (d3.event.pageX + 5) + "px")
-             .style("top", (d3.event.pageY - 28) + "px")
-		    ;
+      .style("fill", function(d) { return color(cValue(d));}) ;
+      // .on("mouseover", function(d) {
+      //     tooltip_sc.transition()
+      //          .duration(200)
+      //          .style("opacity", .9);
+      //    tooltip_sc.html("Sports:" + [d.Sports] + "<br/> (Year:" + xValue(d) + ",No of Athlete: " + yValue(d) + ")")
+      //        .style("left", (d3.event.pageX + 5) + "px")
+      //        .style("top", (d3.event.pageY - 28) + "px")
+		  //   ;
 			 
-	      })
-      .on("mouseout", function(d) {
-          tooltip.transition()
-               .duration(500)
-               .style("opacity", 0);
+	    //   })
+      // .on("mouseout", function(d) {
+      //     tooltip_sc.transition()
+      //          .duration(500)
+      //          .style("opacity", 0);
+      // });
+
+
+      var tooltip_sc = d3.select("body").append("div").attr("class", "tooltip_sc");
+
+      // Step 2: Create "mouseover" event listener to display tooltip_sc
+      dotGroup2.on("mouseover", function(d) {
+      tooltip_sc.style("display", "block")
+          .html("Sports:" + [d.Sports] + "<br/> (Year:" + xValue(d) + ",No of Athlete: " + yValue(d) + ")")
+          .style("left", d3.event.pageX + "px")
+          .style("top", d3.event.pageY + "px");
+      })
+      // Step 3: Create "mouseout" event listener to hide tooltip_sc
+      .on("mouseout", function() {
+          tooltip_sc.style("display", "none");
       });
 
   // draw legend

@@ -455,11 +455,11 @@ dsPieChart();
                 .attr("fill", colorChosen)
                 ;
                 
-        // Step 1: Append tooltip div
+        // StbarGroupep 1: Append tooltip div
         var toolTip_v1 = d3.select("body").append("div").attr("class", "toolTip_v1");
 
         // Step 2: Create "mouseover" event listener to display tooltip
-        barGroup.on("mouseover", function(d) {
+        .on("mouseover", function(d) {
         toolTip_v1.style("display", "block")
             .html(
                 `<strong>${(d.sports)}<strong><hr>${d.measure}
@@ -472,22 +472,22 @@ dsPieChart();
             toolTip_v1.style("display", "none");
         });
     
-        plot.selectAll("text")
-          .data(currentDatasetBarChart)
-          .enter()
-          .append("text")
-          .text(function(d) {
-              return formatAsInteger(d3.round(d.measure));
-          })
-          .attr("text-anchor", "middle")
-          // Set x position to the left edge of each bar plus half the bar width
-          .attr("x", function(d, i) {
-              return (i * (width / currentDatasetBarChart.length)) + ((width / currentDatasetBarChart.length - barPadding) / 2);
-          })
-          .attr("y", function(d) {
-              return yScale(d.measure) + 14;
-          })
-          .attr("class", "yAxis")
+        // plot.selectAll("text")
+        //   .data(currentDatasetBarChart)
+        //   .enter()
+        //   .append("text")
+        //   .text(function(d) {
+        //       return formatAsInteger(d3.round(d.measure));
+        //   })
+        //   .attr("text-anchor", "middle")
+        //   // Set x position to the left edge of each bar plus half the bar width
+        //   .attr("x", function(d, i) {
+        //       return (i * (width / currentDatasetBarChart.length)) + ((width / currentDatasetBarChart.length - barPadding) / 2);
+        //   })
+        //   .attr("y", function(d) {
+        //       return yScale(d.measure) + 14;
+        //   })
+        //   .attr("class", "yAxis")
                   /* Note that here we only have to select the elements - no more appending! */
               // plot.selectAll("rect")
               // .data(currentDatasetBarChart)
