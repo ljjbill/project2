@@ -459,7 +459,7 @@ dsPieChart();
         var toolTip_v1 = d3.select("body").append("div").attr("class", "toolTip_v1");
 
         // Step 2: Create "mouseover" event listener to display tooltip
-        .on("mouseover", function(d) {
+        barGroup.on("mouseover", function(d) {
         toolTip_v1.style("display", "block")
             .html(
                 `<strong>${(d.sports)}<strong><hr>${d.measure}

@@ -44,3 +44,12 @@
 .jumbotron {
     margin-bottom: 0 !important;
 }
+
+.box {
+    position:relative;
+}
+    .bet_time {
+        position:absolute;
+        bottom:0;
+        right:0;
+    }
