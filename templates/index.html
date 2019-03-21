@@ -7,12 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Local style sheets -->
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/view1.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style_dash.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style_scat.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/stylesheet.css">
     
-
     <!-- external reference sheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src='//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js'></script>
@@ -25,17 +21,22 @@
 
 <body>
     <!-- <canvas id="world"></canvas> -->
-  <div class="parallax">
+  <div class="parallax4">
     <div class="caption">
       <span class="border">Olympic Games</span>
+      <br><br><br> <!--2 spaces-->
+      <span class="border2">By: Bill Liu, Luis Garcia, Tejas Babu <ion-icon name="happy"></ion-icon> </span>
     </div>
-    <br><br><br><br><br><br> <!--6 spaces-->
+    <br><br><br><br><br><br><br><br><br> <!--6 spaces-->
     <canvas id=c1 width=400 height=210></canvas>
   </div>
 
-  <div class="jumbotron text-center jumbotron-fluid">
-    <h1>Project Description:</h1>
-    <p>In this project we explore Olympic games and the data The database we used for this project looks at Olympic records from 1896 to 2016, that were originaly scrapped from www.sports-reference.com. We designed a few queries and identified a few different ways to visualize the data.</p>
+  <div class="jumbotron text-center jumbotron-fluid bg-dark">
+    <h1 class="text-white">Project Description:</h1>
+    <p class="text-white">In this project we explore the Olympic games from 1896 to 2016. First we moved two large csv files into an sqlite database.
+      Then, we created a flask application that would query data into different formats to then translate into creative visualizations.
+      Each endpoint is in essence an ETL pipeline into D3 graphs. First the Data is queried with SQLAlchemy. Second, the data is transformed with Pandas into usefull information. Last, we convert the dataframes into json files that could be read by D3.
+      The database looks at Olympic records from 1896 to 2016, that were originaly scrapped from www.sports-reference.com.</p>
   </div>
 
   <div class="parallax2"></div>
@@ -62,7 +63,7 @@
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!--22 spaces for pie-bar-line chart-->
     <div class="box">
         <!-- stuff -->
-      <h6 class="text-white bet_time"><ion-icon name="hammer"></ion-icon><ion-icon name="color-palette"></ion-icon><ion-icon name="brush"></ion-icon> Bill Liu</h6>
+      <h6 class="text-white bet_time"><ion-icon name="brush"></ion-icon> Bill Liu</h6>
     </div>
     <br> <!--1 space-->
     <h4 class='text-white'>Description:</h4>
@@ -82,7 +83,7 @@
     <br><br> <!--2 spaces-->
     <div class="box">
         <!-- stuff -->
-      <h6 class="text-white bet_time"><ion-icon name="hammer"></ion-icon><ion-icon name="color-palette"></ion-icon><ion-icon name="brush"></ion-icon> Tejas Babu</h6>
+      <h6 class="text-white bet_time"><ion-icon name="brush"></ion-icon> Tejas Babu</h6>
     </div>
     <h4 class='text-white'>Description:</h4>
     <p class='text-white'>In this visualization we can see the number of medals won per country. Hovering over a histogram on your will automatically update information on the pie chart and the legend of the vizualisation to reflect the correct medal split of the country you selected.
@@ -110,7 +111,7 @@
     <br><br> <!--2 spaces-->
     <div class="box">
         <!-- stuff -->
-      <h6 class="text-white bet_time"><ion-icon name="hammer"></ion-icon><ion-icon name="color-palette"></ion-icon><ion-icon name="brush"></ion-icon> Tejas Babu</h6>
+      <h6 class="text-white bet_time"><ion-icon name="brush"></ion-icon> Tejas Babu</h6>
     </div>
     <h4 class="text-white">Description:</h4>
     <p class="text-white">The vizulation displays the number of athletes participating in the olympic games per sport. If you hover an individual dot inside the scatter plot you will see what sport it is associated with and how many athletes participated in the event. This includes both winter and summer olympic games. </p>
@@ -118,7 +119,7 @@
     <ol class="text-white">
       <li>1896 first time Olympic held in Athens, Greece.</li>
       <li>winter game started first time 1924.</li>
-      <li>In 1940 and 1944 Olympic did not held because of Worl War -II,</li>
+      <li>In 1940 and 1944 Olympic did not held because of World War -II,</li>
       <li>Swiming  for Summer 2008 has highest no athlete -- 200.</li>
     </ol>
     <br><br> <!--2 spaces-->

@@ -1,0 +1,294 @@
+body{
+    color: white;
+    font: 11px sans-serif;
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+h6 {
+    font-style: italic;
+}
+
+.parallax {
+    background-image: url("https://i.redd.it/b5qlzuxwd8r01.gif");
+    min-height: 400px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+    .caption {
+        position: absolute;
+        left: 0;
+        top: 30%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+        transform: translateY(-90%);
+    }
+
+    .caption span.border {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+    }
+
+    .caption span.border2 {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 15px;
+        letter-spacing: 4px;
+    }
+
+    .parallax2 {
+        background-image: url("https://i.redd.it/b5qlzuxwd8r01.gif");
+        min-height: 200px; 
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parallax3 {
+        background-image: url("https://i.redd.it/b5qlzuxwd8r01.gif");
+        min-height: 1000px; 
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parallax4 {
+        background-image: url("https://i.redd.it/b5qlzuxwd8r01.gif");
+        min-height: 500px; 
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+.jumbotron {
+    margin-bottom: 0 !important;
+}
+
+.box {
+    position:relative;
+}
+
+    .bet_time {
+        position:absolute;
+        bottom:0;
+        right:0;
+    }
+/* ################# */
+/* ----DASHBOARD---- */
+/* ################# */
+
+path:hover {
+    opacity:0.9
+}
+
+rect:hover {
+    fill:blue;
+}
+
+.legend tr{
+    border-bottom:1px solid white;
+}
+
+    .legend tr:first-child{
+        border-top:1px solid white;
+    }
+
+    .legend{
+        margin-bottom:76px;
+        display:inline-block;
+        border-collapse: collapse;
+        border-spacing: 0px;
+    }
+
+    .legend td{
+        padding:4px 5px;
+        vertical-align:bottom;
+    }
+
+    .legendFreq, .legendPerc{
+        align:right;
+        width:50px;
+    }
+
+.axis {
+    font: 10px sans-serif;
+}
+    /* .axis path,
+    .axis line {
+        stroke: white;
+        shape-rendering: crispEdges;
+    } */
+
+    .x.axis path {
+        display: none;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+    
+.dot {
+    stroke: #000;
+}
+    
+.tooltip_sc {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
+    pointer-events: none;
+    }
+
+#dashboard text {
+    fill: white;
+}
+
+    #dashboard tbody {
+        fill: white;
+        color: white;
+    }
+
+#pieChart {    
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:400px;
+    height: 400px; 
+}
+
+#lineChart {    
+    position:absolute;
+    top:10px;
+    left:410px;
+    height: 150px;
+}
+    /*for line chart*/
+    #lineChart .axis path, #lineChart .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges; //The shape-rendering property is an SVG attribute, used here to make sure our axis and its tick mark lines are pixel-perfect. 
+    }
+
+    .line {
+    fill: none;
+    /*stroke: steelblue;*/
+    stroke-width: 3px;
+    }
+
+    #lineChart .dot {
+    /*fill: white;*/
+    /*stroke: steelblue;*/
+    stroke-width: 1.5px;
+    }
+
+    #lineChartTitle1 {
+        font-family: Verdana;
+        font-size  : 14px;
+        fill       : lightgrey;
+        font-weight: bold;
+        text-anchor: middle;
+    }
+    
+    #lineChartTitle2 {
+        font-family: Verdana;
+        font-size  : 72px;
+        fill       : grey;
+        text-anchor: middle;
+        font-weight: bold;
+        /*font-style: italic;*/
+    }
+    
+#barChart {
+    position:absolute;
+    top:160px;
+    left:410px;
+    height: 250px;
+}
+    
+    .slice {
+       font-size: 12pt;
+       font-family: Verdana;
+       fill: white; 
+       font-weight: bold;	
+    }       
+    
+    .axis text {
+        font-family: Verdana;
+            font-size: 11px;
+            /* color: white */
+    }
+    
+    .title {
+        font-family: Verdana;
+        font-size: 15px;	
+        fill: white;	
+            
+    }
+    
+.xAxis {
+    font-family: verdana;
+    font-size: 8px;
+        fill: white;
+}  
+
+.yAxis {
+    font-family: verdana;
+    font-size: 11px;
+    fill: white;
+}
+
+    
+    
+.toolTip_v1 {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
+    pointer-events: none;
+}
+
+    
+    
+    
+    
+    
+      
+    table {
+        border-collapse:collapse;
+        border: 0px;	
+        font-family: Verdana;	
+        color: #5C5558;
+        font-size: 12px;
+        text-align: right;			
+    }
+    
+    td {
+        padding-left: 10px;		
+    }
+    
