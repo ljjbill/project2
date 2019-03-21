@@ -27,7 +27,7 @@
       <br><br><br> <!--2 spaces-->
       <span class="border2">By: Bill Liu, Luis Garcia, Tejas Babu <ion-icon name="happy"></ion-icon> </span>
     </div>
-    <br><br><br><br><br><br><br><br><br> <!--6 spaces-->
+    <br><br><br><br><br><br><br><br><br><br> <!--10 spaces-->
     <canvas id=c1 width=400 height=210></canvas>
   </div>
 
@@ -36,7 +36,8 @@
     <p class="text-white">In this project we explore the Olympic games from 1896 to 2016. First we moved two large csv files into an sqlite database.
       Then, we created a flask application that would query data into different formats to then translate into creative visualizations.
       Each endpoint is in essence an ETL pipeline into D3 graphs. First the Data is queried with SQLAlchemy. Second, the data is transformed with Pandas into usefull information. Last, we convert the dataframes into json files that could be read by D3.
-      The database looks at Olympic records from 1896 to 2016, that were originaly scrapped from www.sports-reference.com.</p>
+      The database looks at Olympic records from 1896 to 2016, that were originaly scrapped from www.sports-reference.com.
+      To meet the requirement of using a javascript library not covered, we used Anime.js to generate the Olympic logo animation.</p>
   </div>
 
   <div class="parallax2"></div>
@@ -191,7 +192,7 @@
   
     anime({
       targets: 'canvas',
-      translateX: 450,
+      translateX: 520,
       duration: 9000,
       rotate: {
         value: 360,
