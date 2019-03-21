@@ -12,6 +12,19 @@ h6 {
     font-style: italic;
 }
 
+table {
+    border-collapse:collapse;
+    border: 0px;	
+    font-family: Verdana;	
+    color: #5C5558;
+    font-size: 12px;
+    text-align: right;			
+}
+
+td {
+    padding-left: 10px;		
+}
+
 .parallax {
     background-image: url("https://i.redd.it/b5qlzuxwd8r01.gif");
     min-height: 400px; 
@@ -128,11 +141,6 @@ rect:hover {
 .axis {
     font: 10px sans-serif;
 }
-    /* .axis path,
-    .axis line {
-        stroke: white;
-        shape-rendering: crispEdges;
-    } */
 
     .x.axis path {
         display: none;
@@ -258,8 +266,6 @@ rect:hover {
     font-size: 11px;
     fill: white;
 }
-
-    
     
 .toolTip_v1 {
     position: absolute;
@@ -272,23 +278,15 @@ rect:hover {
     text-align: center;
     pointer-events: none;
 }
-
-    
-    
-    
-    
-    
       
-    table {
-        border-collapse:collapse;
-        border: 0px;	
-        font-family: Verdana;	
-        color: #5C5558;
-        font-size: 12px;
-        text-align: right;			
+@media (max-width: 600px) {
+    .row, .navbar {   
+        flex-direction: column;
+    }
+    }
+@media screen and (max-width: 600px) {
+    .navbar li.right, 
+    .navbar li {float: none;}
     }
     
-    td {
-        padding-left: 10px;		
-    }
     
