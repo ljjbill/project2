@@ -29,18 +29,61 @@
     </div>
     <br><br><br><br><br><br><br><br><br><br> <!--10 spaces-->
     <canvas id=c1 width=400 height=210></canvas>
+    
   </div>
 
-  <div class="jumbotron text-center jumbotron-fluid bg-dark">
-    <h1 class="text-white">Project Description:</h1>
-    <p class="text-white">In this project we explore data from the Olympic games from 1896 to 2016. First we moved two large csv files into an sqlite database.
-      Then, we created a flask application that would query data into different formats to then translate into creative visualizations.
-      Each endpoint is in essence an ETL pipeline into D3 graphs. First the Data is queried with SQLAlchemy. Second, the data is transformed with Pandas into usefull information. Last, we convert the dataframes into json files that could be read by D3.
-      The database looks at Olympic records from 1896 to 2016, that were originaly scrapped from www.sports-reference.com.
-      To meet the requirement of using a javascript library not covered, we used Anime.js to generate the Olympic logo animation.</p>
+  <div class="jumbotron jumbotron-fluid bg-dark">
+    <div class="container">
+      <h1 class="text-white">Project Description:</h1>
+      <p class="text-white"><strong>Project Goal:</strong> To create a full stack application that pulled data from a database and visualized it using D3.js.</p>
+      <p class="text-white"><strong>Data: </strong>In this project we explored data from the Olympic games spanning from 1896 to 2016. Originally scrapped from www.sports-reference.com.</p>
+      <p class="text-white"><strong>Technology: </strong>Python, Sqlite database, SQLAlchemy, Pandas, HTML5, CSS, javascript, Anime.js, D3.js</p>
+      <ul>
+        <li class="text-white">First we created a Flask application that would server json endpoints to the front end</li>
+        <li class="text-white">We then developed queries that would efficiently pull data from the database</li>
+        <li class="text-white">Then we transformed the data into useful formats</li>
+        <li class="text-white">Last, we used the enpoints to develop interactive visualizations of the data</li>
+      </ul>
+    </div>
   </div>
 
   <div class="parallax2"></div>
+
+  <div class="jumbotron jumbotron-fluid bg-dark">
+      <div class="container">
+        <h1 class="text-white">Roles and Credits:</h1>
+        <p class="text-white"><strong>Luis Garcia:</strong> Back-end/Front-end Development</p>
+        <ul>
+          <li class="text-white">Used Flask to create the back end to serve json endpoints</li>
+          <li class="text-white">Used SQL Alchemy to develop queries</li>
+          <li class="text-white">Used Pandas to transform data</li>
+          <li class="text-white">Used Html, bootstrap, and css to create landing page</li>
+          <li class="text-white">Used javascript to edit D3.js graphs to fit dimentions of landing page</li>
+        </ul>
+        <p class="text-white"><strong>Bill Liu:</strong> Front-end Development</p>
+        <ul>
+          <li class="text-white">Used D3.js to generate 3 different charts</li>
+          <ul>
+            <li class="text-white">Pie chart to show the composition of medal counts by country</li>
+            <li class="text-white">Line chart to show the medal count trend over the years</li>
+            <li class="text-white">Bar chart to show the medal count by sports</li>
+          </ul>
+          <li class="text-white">Created 2 functions, one to update line chart and one to update bar chart, when the country is selected on the pie chart</li>
+        </ul>
+        <p class="text-white"><strong>Tejas Babu:</strong> Front-end Development</p>
+        <ul>
+          <li class="text-white">Used d3.js to generate 2 different visualizations</li>
+          <ul>
+              <li class="text-white">Bar graph to show the amount of medal counts by country</li>
+              <li class="text-white">Pie chart to show distribution of medal types</li>
+              <li class="text-white">Scatter chart to show number of athletes by sport</li>
+          </ul>
+        </ul>
+        <p class="text-white"><strong>Background Image Credit: </strong>Pixel Hall of Fame</p>
+      </div>
+    </div>
+  
+    <div class="parallax2"></div>
 
   <div class="container-fluid bg-dark">
     <br><br> <!--2 spaces-->
